@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\src">
+      <UniqueIdentifier>{ba33c42a-1327-494a-9392-7f4bc15d8c50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\linalg">
+      <UniqueIdentifier>{2fd301e5-ab07-49ba-a97a-4842c0e43054}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\misc">
+      <UniqueIdentifier>{f79f7f3d-ef9d-46f2-8f4d-10e986ad6ea6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\linalg">
+      <UniqueIdentifier>{b6f60d29-3070-43eb-9969-e77cef5e96f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\misc">
+      <UniqueIdentifier>{d1499a7e-ce86-4be3-8854-9b02982182ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\mm">
+      <UniqueIdentifier>{fe61effb-1767-4b91-9c3a-c9f3a73543e4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\clibrary.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\linalg\linalg.cpp">
+      <Filter>Source Files\src\linalg</Filter>
+    </ClCompile>
+    <ClCompile Include="src\linalg\Plane.cpp">
+      <Filter>Source Files\src\linalg</Filter>
+    </ClCompile>
+    <ClCompile Include="src\linalg\Point3D.cpp">
+      <Filter>Source Files\src\linalg</Filter>
+    </ClCompile>
+    <ClCompile Include="src\linalg\Polyhedron.cpp">
+      <Filter>Source Files\src\linalg</Filter>
+    </ClCompile>
+    <ClCompile Include="src\linalg\TankVolumeCalculator.cpp">
+      <Filter>Source Files\src\linalg</Filter>
+    </ClCompile>
+    <ClCompile Include="src\misc\mylib.cpp">
+      <Filter>Source Files\src\misc</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\linalg\linalg.h">
+      <Filter>Header Files\linalg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\linalg\Plane.h">
+      <Filter>Header Files\linalg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\linalg\Point3D.h">
+      <Filter>Header Files\linalg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\linalg\Polyhedron.h">
+      <Filter>Header Files\linalg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\linalg\TankVolumeCalculator.h">
+      <Filter>Header Files\linalg</Filter>
+    </ClInclude>
+    <ClInclude Include="src\misc\mylib.h">
+      <Filter>Header Files\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mm\mmtester.h">
+      <Filter>Header Files\mm</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
