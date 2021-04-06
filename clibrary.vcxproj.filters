@@ -19,17 +19,8 @@
     <Filter Include="Source Files\src\linalg">
       <UniqueIdentifier>{2fd301e5-ab07-49ba-a97a-4842c0e43054}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\src\misc">
-      <UniqueIdentifier>{f79f7f3d-ef9d-46f2-8f4d-10e986ad6ea6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\linalg">
       <UniqueIdentifier>{b6f60d29-3070-43eb-9969-e77cef5e96f5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\misc">
-      <UniqueIdentifier>{d1499a7e-ce86-4be3-8854-9b02982182ff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\mm">
-      <UniqueIdentifier>{fe61effb-1767-4b91-9c3a-c9f3a73543e4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -51,8 +42,8 @@
     <ClCompile Include="src\linalg\TankVolumeCalculator.cpp">
       <Filter>Source Files\src\linalg</Filter>
     </ClCompile>
-    <ClCompile Include="src\misc\mylib.cpp">
-      <Filter>Source Files\src\misc</Filter>
+    <ClCompile Include="src\mylib.cpp">
+      <Filter>Source Files\src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -71,11 +62,11 @@
     <ClInclude Include="src\linalg\TankVolumeCalculator.h">
       <Filter>Header Files\linalg</Filter>
     </ClInclude>
-    <ClInclude Include="src\misc\mylib.h">
-      <Filter>Header Files\misc</Filter>
+    <ClInclude Include="src\mmtester.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\mm\mmtester.h">
-      <Filter>Header Files\mm</Filter>
+    <ClInclude Include="src\mylib.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

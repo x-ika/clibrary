@@ -1,6 +1,6 @@
 #pragma once
 
-#include "mylib.h"
+#include "../mylib.h"
 #include "linalg.h"
 #include "point3d.h"
 #include "plane.h"

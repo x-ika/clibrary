@@ -21,6 +21,24 @@ namespace Common {
 		return sout.str();
 	}
 
+	string toString(const int a) {
+		ostringstream sout;
+		sout << a;
+		return sout.str();
+	}
+
+	string toString(const double a) {
+		ostringstream sout;
+		sout << a;
+		return sout.str();
+	}
+
+	string toString(char* a) {
+		ostringstream sout;
+		sout << a;
+		return sout.str();
+	}
+
 	template<class T> void out(T x) {
 		ostringstream s;
 		s << x;
@@ -35,12 +53,17 @@ namespace Common {
 		cout << endl;
 	}
 
+	void println(string s) {
+		cout << s << endl;
+	}
+
 }
 
 //---------------------------------------------------------------------------------------
 
 namespace FastTimer {
 
+	vector<string> prefix;
 	VUI64 startTime, totalTime;
 
 #ifdef _WIN32
@@ -55,7 +78,8 @@ namespace FastTimer {
 	}
 #endif
 
-	void init(int n) {
+	void init(int n, vector<string>& s) {
+		prefix = s;
 		startTime.assign(n, 0);
 		totalTime.assign(n, 0);
 	}
@@ -77,7 +101,7 @@ namespace FastTimer {
 	}
 
 	void print(int i) {
-		fprintf(stdout, "Time %d: %.3f\n", i, totalTime[i] / 1e3);
+		fprintf(stdout, "%11s Time(%d): %.3f\n", prefix[i].c_str(), i, totalTime[i] / 1e3);
 	}
 
 	void printAll() {
@@ -113,11 +137,17 @@ namespace FastRandom {
 		return (int)(seed >> (48 - bits));
 	}
 
-	inline int nextInt(int n) {
-		return next(31) % n;
+	int nextInt(int n) {
+		int r = next(31);
+		int m = n - 1;
+		if ((n & m) == 0) {
+			return (int)((n * (int64)r) >> 31);
+		}
+		for (int u = r; u - (r = u % n) + m < 0; u = next(31));
+		return r;
 	}
 
-	inline double nextDouble() {
+	double nextDouble() {
 		return (((int64)(next(26)) << 27) + next(27)) * MULT;
 	}
 
@@ -166,6 +196,34 @@ namespace ArrayUtils {
 		return r;
 	}
 
+	int* createInts(int n) {
+		int* r = new int[n];
+		memset(r, 0, sizeof(int) * n);
+		return r;
+	}
+
+	int** createInts(int n, int m) {
+		int** r = new int* [n];
+		for (int i = 0; i < n; i++) {
+			r[i] = createInts(m);
+		}
+		return r;
+	}
+
+	double* createDoubles(int n) {
+		double* r = new double[n];
+		memset(r, 0, sizeof(double) * n);
+		return r;
+	}
+
+	double** createDoubles(int n, int m) {
+		double** r = new double* [n];
+		for (int i = 0; i < n; i++) {
+			r[i] = createDoubles(m);
+		}
+		return r;
+	}
+
 	template <class T> T* clone(T* a, int n) {
 		T* b = new T[n];
 		memcpy(b, a, sizeof(T) * n);
@@ -178,8 +236,38 @@ namespace ArrayUtils {
 		}
 	}
 
+	void fill(int* a, int from, int to, int val) {
+		for (int i = from; i < to; i++) {
+			a[i] = val;
+		}
+	}
+
+	void fill(bool* a, int from, int to, bool val) {
+		for (int i = from; i < to; i++) {
+			a[i] = val;
+		}
+	}
+
+	void fill(double* a, int from, int to, double val) {
+		for (int i = from; i < to; i++) {
+			a[i] = val;
+		}
+	}
+
 	template <class T> void arraycopy(T* src, int srcInd, T* dst, int dstInd, int n) {
 		memcpy(dst + dstInd, src + srcInd, sizeof(T) * n);
+	}
+
+	void arraycopy(short* src, int srcInd, short* dst, int dstInd, int n) {
+		memcpy(dst + dstInd, src + srcInd, sizeof(short) * n);
+	}
+
+	void arraycopy(int* src, int srcInd, int* dst, int dstInd, int n) {
+		memcpy(dst + dstInd, src + srcInd, sizeof(int) * n);
+	}
+
+	void arraycopy(double* src, int srcInd, double* dst, int dstInd, int n) {
+		memcpy(dst + dstInd, src + srcInd, sizeof(double) * n);
 	}
 
 	//-----------------------------------------------------------------------------------
@@ -197,6 +285,18 @@ namespace ArrayUtils {
 		for (; n-- > 0; i++, j++) {
 			std::swap(a[i], a[j]);
 		}
+	}
+
+	void swap(int* a, int i, int j) {
+		std::swap(a[i], a[j]);
+	}
+
+	void swap(double* a, int i, int j) {
+		std::swap(a[i], a[j]);
+	}
+
+	void swap(int** a, int i, int j) {
+		std::swap(a[i], a[j]);
 	}
 
 	template <class T> int median(T* x, int* p, int a, int b, int c) {
@@ -460,6 +560,7 @@ Graph::Graph() {
 	z = 0;
 	g = 0;
 	e = 0;
+	m = 0;
 }
 
 Graph::Graph(int nVertex) {
@@ -469,6 +570,7 @@ Graph::Graph(int nVertex) {
 	g = ArrayUtils::create<int*>(n);
 	e = ArrayUtils::create<int*>(n);
 	ArrayUtils::arraycopy(ArrayUtils::ORDER, 0, id, 0, n);
+	m = 0;
 }
 
 void Graph::edge(int i, int j, int k) {

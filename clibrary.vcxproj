@@ -146,7 +146,7 @@
     <ClCompile Include="src\linalg\Point3D.cpp" />
     <ClCompile Include="src\linalg\Polyhedron.cpp" />
     <ClCompile Include="src\linalg\TankVolumeCalculator.cpp" />
-    <ClCompile Include="src\misc\mylib.cpp" />
+    <ClCompile Include="src\mylib.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\linalg\linalg.h" />
@@ -154,8 +154,8 @@
     <ClInclude Include="src\linalg\Point3D.h" />
     <ClInclude Include="src\linalg\Polyhedron.h" />
     <ClInclude Include="src\linalg\TankVolumeCalculator.h" />
-    <ClInclude Include="src\misc\mylib.h" />
-    <ClInclude Include="src\mm\mmtester.h" />
+    <ClInclude Include="src\mmtester.h" />
+    <ClInclude Include="src\mylib.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

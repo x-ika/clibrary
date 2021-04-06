@@ -24,9 +24,8 @@ typedef unsigned long long uint64;
 typedef vector<int> VI;
 typedef vector<uint> VUI;
 typedef vector<uint64> VUI64;
-typedef vector<VI> VII;
-typedef vector<VUI> VUII;
-typedef vector<VII> VIII;
+typedef vector<VI> VVI;
+typedef vector<VUI> VVUI;
 typedef vector<double> VD;
 typedef vector<string> VS;
 
@@ -40,9 +39,17 @@ namespace Common {
 
 	template<class T> string toString(const T& a);
 
+	string toString(const int a);
+
+	string toString(const double a);
+
+	string toString(char* a);
+
 	template<class T> void out(T x);
 
 	template<class T> void out(T* a, int n);
+
+	void println(string s);
 
 }
 
@@ -52,7 +59,7 @@ namespace FastTimer {
 
 	inline uint64 time();
 
-	void init(int n);
+	void init(int n, vector<string>& s);
 
 	void start(int i);
 
@@ -78,9 +85,9 @@ namespace FastRandom {
 
 	int next(int bits);
 
-	inline int nextInt(int n);
+	int nextInt(int n);
 
-	inline double nextDouble();
+	double nextDouble();
 
 	template<class T> inline T randomElement(T* a, int n);
 
@@ -98,11 +105,31 @@ namespace ArrayUtils {
 
 	template<class T> T** create(int n, int m);
 
+	int* createInts(int n);
+
+	int** createInts(int n, int m);
+
+	double* createDoubles(int n);
+
+	double** createDoubles(int n, int m);
+
 	template <class T> T* clone(T* a, int n);
 
 	template <class T> void fill(T* a, int from, int to, T val);
 
+	void fill(int* a, int from, int to, int val);
+
+	void fill(bool* a, int from, int to, bool val);
+
+	void fill(double* a, int from, int to, double val);
+
 	template <class T> void arraycopy(T* src, int srcInd, T* dst, int dstInd, int n);
+
+	void arraycopy(short* src, int srcInd, short* dst, int dstInd, int n);
+
+	void arraycopy(int* src, int srcInd, int* dst, int dstInd, int n);
+
+	void arraycopy(double* src, int srcInd, double* dst, int dstInd, int n);
 
 	//-----------------------------------------------------------------------------------
 
@@ -111,6 +138,12 @@ namespace ArrayUtils {
 	template <class T> void swap(T* a, int i, int j);
 
 	template <class T> void swap(T* a, int i, int j, int n);
+
+	void swap(int* a, int i, int j);
+
+	void swap(double* a, int i, int j);
+
+	void swap(int** a, int i, int j);
 
 	template <class T> int median(T* x, int* p, int a, int b, int c);
 

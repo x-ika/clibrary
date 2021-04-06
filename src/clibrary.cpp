@@ -2,7 +2,7 @@
 
 #include "mmtester.h"
 
-#include "TankVolumeCalculator.h"
+#include "linalg/TankVolumeCalculator.h"
 
 //---------------------------------------------------------------------------------------
 
@@ -70,7 +70,8 @@ Polyhedron getPyramid() {
 
 void testVolumeCalculator() {
 
-	FastTimer::init(9);
+	vector<string> names = { "1", "2", "3", "4" };
+	FastTimer::init(9, names);
 	FastTimer::start(0);
 
 	//TankVolumeCalculator calculator(getCube());
